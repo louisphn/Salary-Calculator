@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>今月の出勤時間を精算！</title>
+    <style>
+      body {text-align:center;}
+      td,th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      #tableToModify {
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>How much do you earn?</h1>
+  </br></br>
+    <table id="tableToModify">
+  <!-- headings -->
+      <tr>
+        <th>Day</th>
+        <th>Start Time(hour)</th>
+        <th>Start Time(minute)</th>
+        <th>End Time (hour)</th>
+        <th>End Time (minute)</th>
+        <th>Break Time(minute)</th>
+        <th>Total(hour)</th>
+      </tr>
+  <!-- row 1 -->
+      <tr id="rowToClone">
+        <td>1</td>
+        <td>
+          <select class="starthour">
+              <option value=9>9</option>
+              <option value=10>10</option>
+              <option value=11>11</option>
+              <option value=12>12</option>
+              <option value=13>13</option>
+              <option value=14>14</option>
+              <option value=15>15</option>
+              <option value=16>16</option>
+              <option value=17>17</option>
+              <option value=18>18</option>
+              <option value=19>19</option>
+              <option value=20>20</option>
+          </select>
+        </td>
+        <td>
+          <select class="startminute">
+              <option value=0>00</option>
+              <option value=0.25>15</option>
+              <option value=0.5>30</option>
+              <option value=0.75>45</option>
+          </select>
+        </td>
+        <td>
+          <select class="endhour">
+              <option value=10>10</option>
+              <option value=11>11</option>
+              <option value=12>12</option>
+              <option value=13>13</option>
+              <option value=14>14</option>
+              <option value=15>15</option>
+              <option value=16>16</option>
+              <option value=17>17</option>
+              <option value=18>18</option>
+              <option value=19>19</option>
+              <option value=20>20</option>
+              <option value=21>21</option>
+              <option value=22>22</option>
+          </select>
+        </td>
+        <td>
+          <select class="endminute">
+              <option value=0>00</option>
+              <option value=0.25>15</option>
+              <option value=0.5>30</option>
+              <option value=0.75>45</option>
+          </select>
+        </td>
+        <td>
+          <select class="breaktime">
+              <option value=0>00</option>
+              <option value=0.25>15</option>
+              <option value=0.5>30</option>
+              <option value=0.75>45</option>
+              <option value=1>60</option>
+          </select>
+        </td>
+        <td class="total"></td>
+      </tr>
+    <!-- row 2 -->
+    <tr>
+      <td>2</td>
+      <td>
+        <select class="starthour">
+            <option value=9>9</option>
+            <option value=10>10</option>
+            <option value=11>11</option>
+            <option value=12>12</option>
+            <option value=13>13</option>
+            <option value=14>14</option>
+            <option value=15>15</option>
+            <option value=16>16</option>
+            <option value=17>17</option>
+            <option value=18>18</option>
+            <option value=19>19</option>
+            <option value=20>20</option>
+        </select>
+      </td>
+      <td>
+        <select class="startminute">
+            <option value=0>00</option>
+            <option value=0.25>15</option>
+            <option value=0.5>30</option>
+            <option value=0.75>45</option>
+        </select>
+      </td>
+      <td>
+        <select class="endhour">
+            <option value=10>10</option>
+            <option value=11>11</option>
+            <option value=12>12</option>
+            <option value=13>13</option>
+            <option value=14>14</option>
+            <option value=15>15</option>
+            <option value=16>16</option>
+            <option value=17>17</option>
+            <option value=18>18</option>
+            <option value=19>19</option>
+            <option value=20>20</option>
+            <option value=21>21</option>
+            <option value=22>22</option>
+        </select>
+      </td>
+      <td>
+        <select class="endminute">
+            <option value=0>00</option>
+            <option value=0.25>15</option>
+            <option value=0.5>30</option>
+            <option value=0.75>45</option>
+        </select>
+      </td>
+      <td>
+        <select class="breaktime">
+            <option value=0>00</option>
+            <option value=0.25>15</option>
+            <option value=0.5>30</option>
+            <option value=0.75>45</option>
+            <option value=1>60</option>
+        </select>
+      </td>
+      <td class="total"></td>
+    </tr>
+  <!-- row 3 -->
+  <tr>
+    <td>3</td>
+    <td>
+      <select class="starthour">
+          <option value=9>9</option>
+          <option value=10>10</option>
+          <option value=11>11</option>
+          <option value=12>12</option>
+          <option value=13>13</option>
+          <option value=14>14</option>
+          <option value=15>15</option>
+          <option value=16>16</option>
+          <option value=17>17</option>
+          <option value=18>18</option>
+          <option value=19>19</option>
+          <option value=20>20</option>
+      </select>
+    </td>
+    <td>
+      <select class="startminute">
+          <option value=0>00</option>
+          <option value=0.25>15</option>
+          <option value=0.5>30</option>
+          <option value=0.75>45</option>
+      </select>
+    </td>
+    <td>
+      <select class="endhour">
+          <option value=10>10</option>
+          <option value=11>11</option>
+          <option value=12>12</option>
+          <option value=13>13</option>
+          <option value=14>14</option>
+          <option value=15>15</option>
+          <option value=16>16</option>
+          <option value=17>17</option>
+          <option value=18>18</option>
+          <option value=19>19</option>
+          <option value=20>20</option>
+          <option value=21>21</option>
+          <option value=22>22</option>
+      </select>
+    </td>
+    <td>
+      <select class="endminute">
+          <option value=0>00</option>
+          <option value=0.25>15</option>
+          <option value=0.5>30</option>
+          <option value=0.75>45</option>
+      </select>
+    </td>
+    <td>
+      <select class="breaktime">
+          <option value=0>00</option>
+          <option value=0.25>15</option>
+          <option value=0.5>30</option>
+          <option value=0.75>45</option>
+          <option value=1>60</option>
+      </select>
+    </td>
+    <td class="total"></td>
+  </tr>
+</table>
+</br></br>
+  <button>+</button>
+</br></br>
+  <p>Total hour(s): <span class="totalSum"/></p>
+  <script src="clonerow.js"></script>
+  </body>
+</html>
